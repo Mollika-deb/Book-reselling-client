@@ -28,11 +28,13 @@ const Login = () => {
         event.preventDefault();
 
         const form = event.target;
+       
         const email = form.email.value;
         const password = form.password.value;
+        const name = form.name.value;
 
 
-        signIn(email, password)
+        signIn(email, password, name)
 
             .then(result => {
                 const user = result.user;
@@ -56,9 +58,15 @@ const Login = () => {
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text" name='name' placeholder="email" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                            <input type="email" name='email' placeholder="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">

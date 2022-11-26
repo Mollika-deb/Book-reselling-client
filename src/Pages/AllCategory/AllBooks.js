@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AllBooks = ({ product }) => {
+const AllBooks = ({ product, setBook }) => {
     const { book_title, image_url, location, resale_price, original_peice, use_year, post_time } = product
     return (
         <div className="card mt-10 bg-slate-800 shadow-2xl">
@@ -21,7 +21,7 @@ const AllBooks = ({ product }) => {
             
                 <p className='font-bold text-green-500'>location: {location}</p>
                
-                <label htmlFor="booking-modal" className="btn bg-pink-600 w-64">Book Now</label>
+                <label onClick={() =>setBook(product)} htmlFor="booking-modal" className="btn bg-pink-600 w-64">Book Now</label>
               </div>
           
 

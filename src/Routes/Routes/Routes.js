@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../../Dashboard/Dashboard";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import AllCategory from "../../Pages/AllCategory/AllCategory";
@@ -36,7 +37,7 @@ import PrivateRoute from "../../PrivateRoute/PrivateRoute";
             },
             {
                 path: '/categories/:id',
-                element: <AllCategory></AllCategory>,
+                element: <PrivateRoute><AllCategory></AllCategory></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/Books?id=${params.id}`)
             },
             
@@ -47,7 +48,7 @@ import PrivateRoute from "../../PrivateRoute/PrivateRoute";
     },
      {
          path: '/dashboard',
-         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>
+         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
      },
 ])
 export default router
