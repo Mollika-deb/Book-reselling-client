@@ -36,7 +36,8 @@ import PrivateRoute from "../../PrivateRoute/PrivateRoute";
             },
             {
                 path: '/categories/:id',
-                element: <AllCategory></AllCategory>
+                element: <AllCategory></AllCategory>,
+                loader: ({ params }) => fetch(`http://localhost:5000/Books?id=${params.id}`)
             },
             
            

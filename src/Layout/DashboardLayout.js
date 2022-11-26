@@ -4,10 +4,16 @@ import Sidebar from '../component/Dashboard/Sidebar';
 
 const DashboardLayout = () => {
     return (
-        <div className='md:flex relative min-h-screen'>
-           <Sidebar></Sidebar>
-            <div className='bg-red-400 flex-1'>
-            content
+        <div className="drawer drawer-mobile">
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content  ">
+                <Outlet></Outlet>
+                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+
+            </div>
+            <div className="drawer-side">
+               <Sidebar></Sidebar>
+
             </div>
         </div>
     );
