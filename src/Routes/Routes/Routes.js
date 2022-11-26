@@ -48,7 +48,13 @@ import PrivateRoute from "../../PrivateRoute/PrivateRoute";
     },
      {
          path: '/dashboard',
-         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+         childre:[
+            {
+                 path: '/dashboard',
+                 element: <Dashboard></Dashboard>
+            }
+         ]
      },
 ])
 export default router
