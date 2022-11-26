@@ -20,7 +20,8 @@ const AllBooks = ({ product }) => {
             </div>
             
                 <p className='font-bold text-green-500'>location: {location}</p>
-                <button className="btn bg-pink-600 w-64">Book Now</button>
+               
+                <label htmlFor="booking-modal" className="btn bg-pink-600 w-64">Book Now</label>
               </div>
           
 
