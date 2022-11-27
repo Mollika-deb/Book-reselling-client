@@ -6,13 +6,20 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const { createUser } = useContext(AuthContext);
 
 
-    const handleSignUp = data => {
-        console.log(data)
+    const handleSignUp = (data) => {
+        console.log(data);
+        createUser(data.email, data.password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => console.error(error))
 
     }
-    // const { createUser } = useContext(AuthContext);
+   
     // const navigate = useNavigate()
 
 

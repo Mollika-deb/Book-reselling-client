@@ -7,14 +7,21 @@ import { useForm } from 'react-hook-form';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit} = useForm();
+    const { signIn, googleProviderLogIn } = useContext(AuthContext)
     
 
     const handleLogIn = data =>{
-        console.log(data)
+        console.log(data);
+        signIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
 
     }
 
-    const { signIn, googleProviderLogIn } = useContext(AuthContext)
+    
 
     const navigate = useNavigate()
     const location = useLocation()
