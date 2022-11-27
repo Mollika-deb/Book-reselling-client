@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const BookingModal = ({book, setBook}) => {
-    const { book_title,  resale_price,  } = book;
+  const { book_title, resale_price, image_url } = book;
     const {user} = useContext(AuthContext);
 
 
@@ -17,13 +18,34 @@ const BookingModal = ({book, setBook}) => {
         const booking ={
             bookName:book_title,
             selling_price: resale_price,
+            image_url: image_url,
             name,
             email,
             phone,
             location
         }
-        console.log(booking)
-        setBook(null);
+        console.log(booking);
+
+
+      fetch('http://localhost:5000/order',{
+        method:'POST',
+        headers:{
+          'content-type':'application/json',
+        },
+        body: JSON.stringify(booking)
+      })
+      .then(res => res.json())
+      .then(data =>{
+        console.log(data);
+        
+        if (data.acknowledged){
+          setBook(null);
+          toast.success('Booking confirmed');
+        }
+         
+        
+      })
+       
 
     }
 
@@ -38,12 +60,13 @@ const BookingModal = ({book, setBook}) => {
 
 
    <form onSubmit={handleBooking} className='  grid grid-cols-1 gap-5 mt-10 justify-center items-center'>
-    <input type="email" name='email' value={user.email}  placeholder='Email' className="input input-bordered input-success w-full " />
-    <input type="text" name="name" placeholder='Name' className="input input-bordered input-success w-full " />
+    <input type="" value={image_url} disabled  className="input input-bordered input-success w-full " />
+    <input type="email" name='email' value={user?.email} disabled  placeholder='Email' className="input input-bordered input-success w-full " />
+    <input type="text" name="name" required placeholder='Name' className="input input-bordered input-success w-full " />
     <input type="text" disabled value={book_title} className="input input-bordered input-success w-full " />
     <input type="text" disabled value={resale_price} className="input input-bordered input-success w-full " />
-    <input type="text" placeholder='Phone no' name='phone'  className="input input-bordered input-success w-full " />
-    <input type="text"  placeholder='Location' name='location'  className="input input-bordered input-success w-full " />
+    <input type="text" required placeholder='Phone no' name='phone'  className="input input-bordered input-success w-full " />
+    <input type="text" required placeholder='Location' name='location'  className="input input-bordered input-success w-full " />
     <input  className='w-full  btn bg-pink-600 ' type="submit" value="Submit" />
    </form>
   </div>
