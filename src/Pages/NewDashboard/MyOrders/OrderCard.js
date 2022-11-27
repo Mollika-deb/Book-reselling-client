@@ -12,7 +12,7 @@ const OrderCard = ({order}) => {
 
                 
                 
-                    <p className='ml-5 font-semibold text-orange-500'>selling price:  {resale_price}</p>
+                <p className='ml-5 font-semibold text-orange-500'>selling price:  {resale_price}</p>
                 </div>
 
                 <p className='font-bold text-green-500'>location: {location}</p>

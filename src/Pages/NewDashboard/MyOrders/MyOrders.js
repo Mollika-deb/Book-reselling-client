@@ -1,5 +1,6 @@
+import {  useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
-import { useQuery } from 'react-query';
+
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import OrderCard from './OrderCard';
 
