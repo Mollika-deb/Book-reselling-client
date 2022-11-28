@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link,  useLocation, useNavigate } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import icon from '../../assets/sign.webp'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
@@ -17,19 +17,21 @@ const SignUp = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
-            toast.success("signed up successfully");
-          
-            navigate('/login');
+           
             
             const userInfo = {
-                displayName: data.name
+                displayName : data.name
             }
+            
             updateUser(userInfo)
             .then(()=>{})
             .catch(error => console.error(error))
             
         })
         .catch(error => console.error(error))
+        toast.success("signed up successfully");
+
+        navigate('/login');
 
     }
    
@@ -70,7 +72,8 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input {...register("name", { required: true })} type="text" placeholder="email" className="input input-bordered" />
+                            <input {...register("name", { required: "name is required" })} type="text" placeholder="email" className="input input-bordered" />
+                            {errors.name && <p className='text-red-600' role="alert">{errors.name?.message}</p>}
                         </div>
                         <div className="form-control">
                             <label className="label">

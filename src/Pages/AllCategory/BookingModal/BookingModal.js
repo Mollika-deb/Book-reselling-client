@@ -27,7 +27,7 @@ const BookingModal = ({book, setBook}) => {
         console.log(booking);
 
 
-      fetch('http://localhost:5000/order',{
+      fetch('https://assignment-12-server-blush.vercel.app/order',{
         method:'POST',
         headers:{
           'content-type':'application/json',
@@ -62,7 +62,7 @@ const BookingModal = ({book, setBook}) => {
    <form onSubmit={handleBooking} className='  grid grid-cols-1 gap-5 mt-10 justify-center items-center'>
     <input type="" value={image_url} disabled  className="input input-bordered input-success w-full " />
     <input type="email" name='email' value={user?.email} disabled  placeholder='Email' className="input input-bordered input-success w-full " />
-    <input type="text" name="name" required placeholder='Name' className="input input-bordered input-success w-full " />
+              <input type="text" name="name" value={user?.displayName} placeholder='Name' className="input input-bordered input-success w-full " />
     <input type=""  value={book_title} className="input input-bordered input-success w-full " />
     <input type="" disabled value={resale_price} className="input input-bordered input-success w-full " />
     <input type="text" required placeholder='Phone no' name='phone'  className="input input-bordered input-success w-full " />

@@ -7,7 +7,7 @@ import OrderCard from './OrderCard';
 const MyOrders = () => {
     const {user} = useContext(AuthContext);
 
-     const url = `http://localhost:5000/order?email=${user?.email}`;
+    const url = `https://assignment-12-server-blush.vercel.app/order?email=${user?.email}`;
     const {data : orders = []} = useQuery({
         queryKey:['order', user?.email],
         queryFn: async () =>{

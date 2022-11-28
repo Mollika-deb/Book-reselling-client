@@ -41,7 +41,7 @@ import PrivateRoute from "../../PrivateRoute/PrivateRoute";
             {
                 path: '/categories/:id',
                 element: <PrivateRoute><AllCategory></AllCategory></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/Books?id=${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-12-server-blush.vercel.app/Books?id=${params.id}`)
             },
           
             
