@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link,  useLocation, useNavigate } from 'react-router-dom';
 import icon from '../../assets/sign.webp'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
+    const navigate = useNavigate()
 
 
     const handleSignUp = (data) => {
@@ -15,12 +17,23 @@ const SignUp = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
+            toast.success("signed up successfully");
+          
+            navigate('/login');
+            
+            const userInfo = {
+                displayName: data.name
+            }
+            updateUser(userInfo)
+            .then(()=>{})
+            .catch(error => console.error(error))
+            
         })
         .catch(error => console.error(error))
 
     }
    
-    // const navigate = useNavigate()
+    
 
 
     // const handleSignup = (event) => {

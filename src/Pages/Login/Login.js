@@ -7,7 +7,12 @@ import { useForm } from 'react-hook-form';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit} = useForm();
-    const { signIn, googleProviderLogIn } = useContext(AuthContext)
+    const { signIn, googleProviderLogIn } = useContext(AuthContext);
+
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
     
 
     const handleLogIn = data =>{
@@ -16,6 +21,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
 
@@ -23,9 +29,6 @@ const Login = () => {
 
     
 
-    const navigate = useNavigate()
-    const location = useLocation()
-    const from = location.state?.from?.pathname || '/'
 
 
     const googleProvider = new GoogleAuthProvider();;
@@ -72,12 +75,7 @@ const Login = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-slate-800">
                     <h1 className="text-5xl text-pink-600 font-bold text-center pt-4">Log In!</h1>
                     <form onSubmit={handleSubmit(handleLogIn)} className="card-body">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
-                            <input {...register("name")}  type="text"  placeholder="email" className="input input-bordered" />
-                        </div>
+                        
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
