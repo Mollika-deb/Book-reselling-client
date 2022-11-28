@@ -4,9 +4,11 @@ import toast from 'react-hot-toast';
 import { Link,  useNavigate } from 'react-router-dom';
 import icon from '../../assets/sign.webp'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
+    useTitle("signup");
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
     const [createUserEmail, setCreateUserEmail] = useState('');

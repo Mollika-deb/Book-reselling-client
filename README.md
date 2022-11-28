@@ -14,5 +14,5 @@ The used books are available at discounted prices. These websites enable people 
 * user can book product . Also in this website I use firbase athentication system.
 * Normal user has also dashboard panel,where people can see my order.Also in this website i use node.js for backend server.
 
-### Admin email: dip@gmail
+### Admin email: dip@gmail.com
 ### Admin password: dipdip

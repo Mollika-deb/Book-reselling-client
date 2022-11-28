@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import AllBooks from './AllBooks';
 import BookingModal from './BookingModal/BookingModal';
 
@@ -7,6 +8,7 @@ import BookingModal from './BookingModal/BookingModal';
 const AllCategory = () => {
     const products = useLoaderData();
     const [book, setBook] = useState(null);
+    useTitle("All category");
     return (
         <div className='grid md:grid-cols2 lg:grid-cols-3 gap-8 mb-10 mr-32 ml-32'>
            {

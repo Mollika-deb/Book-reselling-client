@@ -15,9 +15,9 @@ const OrderCard = ({order}) => {
                 <p className='ml-5 font-semibold text-orange-500'>selling price:  {resale_price}</p>
                 </div>
 
-                <p className='font-bold text-green-500'>location: {location}</p>
+                <p className='font-bold text-center  text-green-500'>location: {location}</p>
 
-                <label  htmlFor="booking-modal" className="btn bg-pink-600 w-64">Book Now</label>
+                <label  htmlFor="booking-modal"  className="btn bg-pink-600 w-full">Book Now</label>
             </div>
 
 

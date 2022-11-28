@@ -5,6 +5,7 @@ import logo2 from '../../assets/logo2.png'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { useForm } from 'react-hook-form';
 import useToken from '../../hooks/useToken';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit} = useForm();
@@ -12,7 +13,9 @@ const Login = () => {
     const [loginUserEmail, setLoginUserEmail ] = useState('');
     const[token]= useToken(loginUserEmail);
 
+ 
 
+    useTitle("Login")
 
     const navigate = useNavigate()
     const location = useLocation()

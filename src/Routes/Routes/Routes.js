@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Error from "../../Error/Error";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import AllCategory from "../../Pages/AllCategory/AllCategory";
@@ -26,6 +27,12 @@ import AdminRouts from "../AdminRouts/AdminRouts";
             {
                 path: '/home',
                 element: <Home></Home>
+            },
+            {
+
+                path:'/*',
+                element: <Error></Error>
+
             },
             {
                 path: '/login',

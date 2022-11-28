@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const BookingModal = ({book, setBook}) => {
   const { book_title, resale_price, image_url } = book;
     const {user} = useContext(AuthContext);
 
+  useTitle('All category')
 
     const handleBooking = event =>{
         event.preventDefault();
