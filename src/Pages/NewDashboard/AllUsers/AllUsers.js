@@ -4,7 +4,7 @@ import AllUserCard from './AllUserCard';
 
 const AllUsers = () => {
 
-    const {data: users = []} = useQuery({
+    const {data: users = [], refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/users');

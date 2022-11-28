@@ -4,15 +4,23 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo2 from '../../assets/logo2.png'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { useForm } from 'react-hook-form';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit} = useForm();
     const { signIn, googleProviderLogIn } = useContext(AuthContext);
+    const [loginUserEmail, setLoginUserEmail ] = useState('');
+    const[token]= useToken(loginUserEmail);
+
 
 
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
+
+    if(token){
+        navigate(from, { replace: true })
+    }
     
 
     const handleLogIn = data =>{
@@ -21,7 +29,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(from, { replace: true })
+                setLoginUserEmail(data.email);
+               
             })
             .catch(error => console.error(error))
 
