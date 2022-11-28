@@ -10,6 +10,7 @@ import MyOrders from "../../Pages/NewDashboard/MyOrders/MyOrders";
 import NewDashboard from "../../Pages/NewDashboard/NewDashboard/NewDashboard";
 import SignUp from "../../Pages/SignUp/SignUp";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+import AdminRouts from "../AdminRouts/AdminRouts";
 
 
 
@@ -65,7 +66,7 @@ import PrivateRoute from "../../PrivateRoute/PrivateRoute";
             },
             {
                 path: '/dashboard/allusers',
-               element:<AllUsers></AllUsers>
+                element:<AllUsers></AllUsers>
             }
         ]
     }

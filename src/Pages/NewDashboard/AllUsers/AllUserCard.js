@@ -4,8 +4,11 @@ import React from 'react';
 const AllUserCard = ({user}) => {
     const {email, name} = user;
     const handleAdmin = id =>{
-        fetch(`http://localhost:5000/users/admin/${id}`,{
-            method: 'PUT'
+        fetch(`https://assignment-12-server-blush.vercel.app/users/admin/${id}`,{
+            method: 'PUT',
+            headers:{
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         })
         .then(res => res.json())
         .then(data => {
