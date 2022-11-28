@@ -5,6 +5,7 @@ import AllCategory from "../../Pages/AllCategory/AllCategory";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import AllUsers from "../../Pages/NewDashboard/AllUsers/AllUsers";
 import MyOrders from "../../Pages/NewDashboard/MyOrders/MyOrders";
 import NewDashboard from "../../Pages/NewDashboard/NewDashboard/NewDashboard";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -61,6 +62,10 @@ import PrivateRoute from "../../PrivateRoute/PrivateRoute";
             {
                 path: '/dashboard/myorder',
                element:<MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/allusers',
+               element:<AllUsers></AllUsers>
             }
         ]
     }

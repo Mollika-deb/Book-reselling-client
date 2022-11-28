@@ -43,27 +43,7 @@ const Login = () => {
             .catch(error => console.log(error));
     };
 
-    // const handleLogin = (event) => {
-    //     event.preventDefault();
-
-    //     const form = event.target;
-       
-    //     const email = form.email.value;
-    //     const password = form.password.value;
-    //     const name = form.name.value;
-
-
-    //     signIn(email, password, )
-
-    //         .then(result => {
-    //             const user = result.user;
-    //             console.log(user);
-    //             form.reset();
-    //             navigate(from, { replace: true })
-    //         })
-    //         .catch(error => console.log(error))
-
-    // }
+    
     return (
         <div className="hero w-full my-20 ">
             <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
